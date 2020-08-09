@@ -1,13 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { ThemeProvider } from 'styled-components'
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import App from './App'
+import theme from './theme'
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+import rootReducer from './redux/reducers/index.js'
+import * as serviceWorker from './serviceWorker'
+
+const store = createStore(rootReducer);
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <ThemeProvider theme={theme}>
+    <Provider store={store}>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </Provider>
+  </ThemeProvider>,
   document.getElementById('root')
 );
 
