@@ -7,7 +7,7 @@ import { ROOT, FAVORITES } from './../constants/pathes'
 const Header = () => (
     <Wrapper>
         <LogoLink to={ROOT}>
-            Herolo Weather Task.
+            Herolo Weather Task
         </LogoLink>
         <NavList>
             <li>
@@ -35,7 +35,7 @@ const Wrapper = styled.div`
 const LogoLink = styled(Link)`
     text-decoration: none;
     color: ${props => props.theme.colors.text};
-    font-size: ${props => props.theme.fontSizes.smallTitle};
+    /* font-size: ${props => props.theme.fontSizes.smallTitle}; */
 `
 
 const NavList = styled.ul`
@@ -47,7 +47,7 @@ const NavList = styled.ul`
 const StyledLink = styled(Link)`
     text-decoration: none;
     color: ${props => props.theme.colors.text};
-    font-size: ${props => props.theme.fontSizes.smallTitle};
+    /* font-size: ${props => props.theme.fontSizes.smallTitle}; */
     &:hover , :focus{
         color: ${props => props.theme.colors.primary};
     }
