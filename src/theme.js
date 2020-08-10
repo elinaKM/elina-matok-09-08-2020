@@ -4,6 +4,7 @@ const theme = {
     secondary: "#FAE8F2",
     text: "#555555",
     buttonText: "#FFFFFF",
+    card: "#FFFFFF",
     border: "#A4A7AC",
   },
   screenWidthBreakPoints: {
@@ -12,7 +13,7 @@ const theme = {
   },
   borderRadius: {
     button: "4px",
-    card: "20px",
+    card: "10px",
     picture: "50%",
   },
   fontSizes: {
