@@ -2,11 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 import Button from './Button'
 
-const Card = ({day, temp, unit}) => {
+const LocationCard = ({item, onRemove}) => {
     return (
         <Wrapper>
-            <p>{day}</p>
-            <p>{`${temp} ${unit}`}</p>
+            <p>{item.title}</p>
+            <p>{item.details1}</p>
+            <p>{item.details2}</p>
+            {onRemove && <Button onClick={item.onRemove}>Remove</Button>}
         </Wrapper>
     )
 }
@@ -23,4 +25,4 @@ const Wrapper = styled.div`
     padding: 10px;
 `
 
-export default Card
+export default LocationCard
