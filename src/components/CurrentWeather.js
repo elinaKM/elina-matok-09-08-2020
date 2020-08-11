@@ -1,21 +1,29 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useSelector, useDispatch } from 'react-redux'
 import Button from './Button'
 
-const CurrentWeather = ({location, addToFavorites}) => {
-    location = {name: "Tel Aviv", temp: "38C"}
+const CurrentWeather = ({addToFavorites}) => {
+    const {temp_metric, text } = useSelector(state => state.currentWeather) || [];
+    const {name, key} = useSelector(state => state.currentLocation) || [];
     return(
         <Wrapper>
-            <City>
-                <CityName>{location.name}</CityName>
-                <Temperature>{location.temp}</Temperature>
-            </City>
-            <Button onClick={addToFavorites}>Add to Favorites</Button>
+            <Header>
+                <City>
+                    <CityName>{name}</CityName>
+                    <Temperature>{`${temp_metric} C`}</Temperature>
+                </City>
+                <Button onClick={addToFavorites}>Add to Favorites</Button>
+            </Header>
+            <WeatherText>{text}</WeatherText>
         </Wrapper>
     )
 }
 
 const Wrapper = styled.div`
+`
+
+const Header = styled.div`
     display: flex;
     justify-content: space-between;
     padding: 10px;
@@ -35,6 +43,13 @@ const CityName = styled.div`
 const Temperature = styled.div`
     color: ${props => props.theme.colors.text};
     font-size: ${props => props.theme.fontSizes.text};
+`
+
+const WeatherText = styled.div`
+    display: flex;
+    justify-content: center;
+    margin: 7% 0;
+    font-size: ${props => props.theme.fontSizes.megaTitle};
 `
 
 export default CurrentWeather

@@ -3,39 +3,40 @@ import styled from 'styled-components'
 import { useSelector, useDispatch } from 'react-redux'
 import allActions from './../redux/actions/index.js'
 import Main from './../components/Main'
+import { get5DaysWeather, getCurrentConditions } from './../utils/apiCalls'
+import { get5ForecastValues, getCurrentConditionsValues } from './../utils/customization'
 
 const Home = () => {
 
-    const [mydata, setMydata] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const dispatch = useDispatch();
+    const location = useSelector(state => state.currentLocation.key);
 
-    const API = 'http://api.accuweather.com/currentconditions/v1/215854.json'
-    // const API = 'http://dataservice.accuweather.com/currentconditions/v1/';
-    // const DEFAULT_QUERY = '215854';
-    
-    const doFetch = () => {
-        fetch(API,
-            {
-                method: 'GET',
-                headers: {
-                    'apikey': 'GOyACs39myLzau6dS8FHBhBtJD6ofaBI',
-                }
-            })
-            .then(response => response.json())
-            .then(data => setMydata(data.hits));
+    const setCurrentConditions = () => {
+        getCurrentConditions(location).then((res) => {
+            dispatch(allActions.currentWeatherActions.setCurrentWeather(getCurrentConditionsValues(res[0])));
+        }).then(set5DaysWeather());
     }
-    console.log(mydata);
+    
+    const set5DaysWeather = () => {
+        get5DaysWeather(location)
+            .then((res) => {
+                dispatch(allActions.fiveDaysForecastActions.setFiveDaysForecast(get5ForecastValues(res.DailyForecasts)));
+            }).then(setLoading(false));
+    }
+
+    // useEffect(() => {
+    //     setCurrentConditions();
+    // }, []);
 
     return (
-        <Wrapper>
-            {/* Home Page:
-            <button onClick={doFetch}>FETCH</button> */}
-            <Main/>
-        </Wrapper>
+        <div>
+            <button onClick={() => {
+                setCurrentConditions();
+            }}>FETCH</button>
+            <Main loading={loading}/>
+        </div>
     )
 }
 
-// const API = 'https://hn.algolia.com/api/v1/search?query=';
-// const DEFAULT_QUERY = 'redux';
-const Wrapper = styled.div`
-`
 export default Home

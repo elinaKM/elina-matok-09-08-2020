@@ -3,14 +3,16 @@ import styled from 'styled-components'
 import CurrentWeather from './CurrentWeather.js'
 import FiveDaysForecast from './FiveDaysForecast.js'
 
-const Main = (props) => {
-    const text = "Clouds and sun"; //need to get from upstears props
+const Main = ({loading}) => {
     return(
         <Wrapper>
-            {/* //add loaging && */}
-                <CurrentWeather/>
-                <WeatherText>{text}</WeatherText>
-                <FiveDaysForecast/>
+            {!loading &&
+                <>
+                    <CurrentWeather/>
+                    <FiveDaysForecast/>
+                </>
+            }
+            {loading && <WeatherText>Loading...</WeatherText>}
         </Wrapper>
     )
 }

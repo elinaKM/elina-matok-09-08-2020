@@ -1,19 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useSelector, useDispatch } from 'react-redux'
 import Card from './Card'
+import { getWeekDay } from '../utils/customization'
 
-const FiveDaysForecast = ({items}) => {
-    
-    //pay attantion to remove:
-    const forcast = [
-        {title: "SUN", details1: "38C"},
-        {title: "SUN", details1: "38C"},
-        {title: "SUN", details1: "38C"},
-        {title: "SUN", details1: "38C"},
-        {title: "SUN", details1: "38C"}];
+const FiveDaysForecast = () => {
+    const forcastArr = useSelector(state => state.fiveDaysForecast) || [];
     return(
         <Wrapper>
-            {forcast.map((item, index) => <Card key={index} item={item}/>)}
+            {forcastArr.map((item, index) => <Card key={index} day={getWeekDay(item.date)} temp={item.temp} unit={item.unit}/>)}
         </Wrapper>
     )
 }
