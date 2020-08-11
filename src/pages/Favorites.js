@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Card from './../components/Card'
+import LocationCard from './../components/LocationCard'
 
 const Favorites = (props) => {
     // const forcast = [];
@@ -17,7 +17,7 @@ const Favorites = (props) => {
     }
     return(
         <ListWrapper>
-            {forcast.length > 0 && forcast.map((item, index) => <Card key={index} item={item} onRemove={onRemove}/>)}
+            {forcast.length > 0 && forcast.map((item, index) => <LocationCard key={index} item={item} onRemove={onRemove}/>)}
             {forcast.length === 0 && 
                 <NoLoactionSaved>
                     No favorites found, go ahead and add some!
