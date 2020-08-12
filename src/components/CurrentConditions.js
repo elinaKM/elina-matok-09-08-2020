@@ -1,19 +1,33 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
 import { useSelector, useDispatch } from 'react-redux'
 import Button from './Button'
+import allActions from '../redux/actions'
 
-const CurrentWeather = ({addToFavorites}) => {
+const CurrentConditions = () => {
+    const [buttonDisabled, setButtonDisabled] = useState(false);
+
     const {temp_metric, text} = useSelector(state => state.currentWeather);
-    const {name, key} = useSelector(state => state.currentLocation);
+    const location = useSelector(state => state.currentLocation);
+    const favorites = useSelector(state => state.favorites);
+    const dispatch  = useDispatch();
+
+    const addToFavorites = () => {
+        dispatch(allActions.favoritesActions.add(location))
+    }
+
+    useEffect(() => {
+        setButtonDisabled(favorites.filter((item) => item.key === location.key).length === 1);
+    },[favorites, location])
+
     return(
         <Wrapper>
             <Header>
                 <City>
-                    <CityName>{name}</CityName>
-                    <Temperature>{`${temp_metric} C`}</Temperature>
+                    <CityName>{location.name}</CityName>
+                    <Temperature>{`${temp_metric}° c`}</Temperature>
                 </City>
-                <Button onClick={addToFavorites}>Add to Favorites</Button>
+                <Button disabled={buttonDisabled} onClick={addToFavorites}>Add to Favorites</Button>
             </Header>
             <WeatherText>{text}</WeatherText>
         </Wrapper>
@@ -52,4 +66,4 @@ const WeatherText = styled.div`
     font-size: ${props => props.theme.fontSizes.megaTitle};
 `
 
-export default CurrentWeather
+export default CurrentConditions

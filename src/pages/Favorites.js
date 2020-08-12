@@ -1,23 +1,15 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import LocationCard from './../components/LocationCard'
 
 const Favorites = (props) => {
-    // const forcast = [];
-    const forcast = [
-        {title: "Jerusalem", details1: "38C", details2: "Cloudy"},
-        {title: "Jerusalem", details1: "38C", details2: "Cloudy"},
-        {title: "Jerusalem", details1: "38C", details2: "Cloudy"},
-        {title: "Jerusalem", details1: "38C", details2: "Cloudy"},
-        {title: "Jerusalem", details1: "38C", details2: "Cloudy"},
-    ];
 
-    const onRemove = () => {
-        //REMOVE ITEM FROM LIST OF FAVORITES
-    }
+    const forcast = useSelector(state => state.favorites);
+
     return(
         <ListWrapper>
-            {forcast.length > 0 && forcast.map((item, index) => <LocationCard key={index} item={item} onRemove={onRemove}/>)}
+            {forcast.length > 0 && forcast.map((item) => <LocationCard key={item.key} itemKey={item.key} name={item.name}/>)}
             {forcast.length === 0 && 
                 <NoLoactionSaved>
                     No favorites found, go ahead and add some!
