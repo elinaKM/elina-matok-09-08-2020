@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/elina-matok-09-08-2020/static/css/main.5ecd60fb.chunk.css",
+    "main.js": "/elina-matok-09-08-2020/static/js/main.0c101259.chunk.js",
+    "main.js.map": "/elina-matok-09-08-2020/static/js/main.0c101259.chunk.js.map",
+    "runtime-main.js": "/elina-matok-09-08-2020/static/js/runtime-main.3bb8fa63.js",
+    "runtime-main.js.map": "/elina-matok-09-08-2020/static/js/runtime-main.3bb8fa63.js.map",
+    "static/js/2.1f4208b8.chunk.js": "/elina-matok-09-08-2020/static/js/2.1f4208b8.chunk.js",
+    "static/js/2.1f4208b8.chunk.js.map": "/elina-matok-09-08-2020/static/js/2.1f4208b8.chunk.js.map",
+    "index.html": "/elina-matok-09-08-2020/index.html",
+    "precache-manifest.940b89315dc5d88dbb3715c346d989fa.js": "/elina-matok-09-08-2020/precache-manifest.940b89315dc5d88dbb3715c346d989fa.js",
+    "service-worker.js": "/elina-matok-09-08-2020/service-worker.js",
+    "static/css/main.5ecd60fb.chunk.css.map": "/elina-matok-09-08-2020/static/css/main.5ecd60fb.chunk.css.map",
+    "static/js/2.1f4208b8.chunk.js.LICENSE.txt": "/elina-matok-09-08-2020/static/js/2.1f4208b8.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3bb8fa63.js",
+    "static/js/2.1f4208b8.chunk.js",
+    "static/css/main.5ecd60fb.chunk.css",
+    "static/js/main.0c101259.chunk.js"
+  ]
+}
