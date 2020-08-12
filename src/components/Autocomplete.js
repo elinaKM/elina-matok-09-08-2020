@@ -39,17 +39,15 @@ const SelectAutoComplete = () => {
         }
 
         (async () => {
-            //   const response = await fetch('https://country.register.gov.uk/records.json?page-size=5000');
-            // let countries = await response.json();
             console.log(searchString);
-            // if (searchString.length > 0) {
-                const response = await fetch(`${API_HOST}locations/v1/cities/autocomplete?q=${searchString}&apikey=${API_KEY}`);
-                let locations = await response.json();
-                locations = getAutoCompleteOptionsValues(locations);
-            // }
-            if (active) {
+            const response = await fetch(`${API_HOST}locations/v1/cities/autocomplete?q=${searchString}&apikey=${API_KEY}`);
+            if (response && active)  {
+                locations = await response.json();
+                // locations = getAutoCompleteOptionsValues(locations);
+            // if (active) {
                 // setOptions(Object.keys(countries).map((key) => countries[key].item[0]));
-                setOptions(locations);
+                setOptions(getAutoCompleteOptionsValues(locations));
+            // }
             }
         })();
 

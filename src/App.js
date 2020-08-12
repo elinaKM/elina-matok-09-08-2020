@@ -15,7 +15,7 @@ const App = () => {
         <Content>
           <Switch>
             <Route path={ROOT} exact component={Home} />
-            <Route path={FAVORITES} exact component={Favorites} />
+            <Route path={ROOT + FAVORITES} exact component={Favorites} />
             <Route component={NotFound} />
           </Switch>
         </Content>
