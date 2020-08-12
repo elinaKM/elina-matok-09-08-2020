@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/elina-matok-09-08-2020/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "/elina-matok-09-08-2020/static/js/main.8598ef3c.chunk.js",
-    "main.js.map": "/elina-matok-09-08-2020/static/js/main.8598ef3c.chunk.js.map",
+    "main.js": "/elina-matok-09-08-2020/static/js/main.0f573da1.chunk.js",
+    "main.js.map": "/elina-matok-09-08-2020/static/js/main.0f573da1.chunk.js.map",
     "runtime-main.js": "/elina-matok-09-08-2020/static/js/runtime-main.3bb8fa63.js",
     "runtime-main.js.map": "/elina-matok-09-08-2020/static/js/runtime-main.3bb8fa63.js.map",
     "static/js/2.1f4208b8.chunk.js": "/elina-matok-09-08-2020/static/js/2.1f4208b8.chunk.js",
     "static/js/2.1f4208b8.chunk.js.map": "/elina-matok-09-08-2020/static/js/2.1f4208b8.chunk.js.map",
     "index.html": "/elina-matok-09-08-2020/index.html",
-    "precache-manifest.c1c39d7b883ae68f078454a6364c506f.js": "/elina-matok-09-08-2020/precache-manifest.c1c39d7b883ae68f078454a6364c506f.js",
+    "precache-manifest.b2d7198ee635a5bb716fe11ce47cc747.js": "/elina-matok-09-08-2020/precache-manifest.b2d7198ee635a5bb716fe11ce47cc747.js",
     "service-worker.js": "/elina-matok-09-08-2020/service-worker.js",
     "static/css/main.5ecd60fb.chunk.css.map": "/elina-matok-09-08-2020/static/css/main.5ecd60fb.chunk.css.map",
     "static/js/2.1f4208b8.chunk.js.LICENSE.txt": "/elina-matok-09-08-2020/static/js/2.1f4208b8.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.3bb8fa63.js",
     "static/js/2.1f4208b8.chunk.js",
     "static/css/main.5ecd60fb.chunk.css",
-    "static/js/main.8598ef3c.chunk.js"
+    "static/js/main.0f573da1.chunk.js"
   ]
 }
