@@ -16,7 +16,7 @@ const Header = () => (
                 </StyledLink>
             </li>
             <li>
-                <StyledLink to={FAVORITES}>
+                <StyledLink to={ROOT + FAVORITES}>
                     Favorites
                 </StyledLink>
             </li>

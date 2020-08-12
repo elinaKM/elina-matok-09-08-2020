@@ -50,7 +50,7 @@ const Home = () => {
                 dispatch(allActions.locationActions.setLocation({key: "3431644", name: "Telanaipura"}));
             }}>set location to Telanaipura</button>
             
-            {/* <Autocomplete/> */}
+            <Autocomplete/>
             
             <Main loading={false}/>
         </Wrapper>
