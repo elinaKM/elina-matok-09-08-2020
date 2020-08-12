@@ -16,7 +16,7 @@ const Header = () => (
                 </StyledLink>
             </li>
             <li>
-                <StyledLink to={FAVORITES}>
+                <StyledLink to={ROOT + FAVORITES}>
                     Favorites
                 </StyledLink>
             </li>
@@ -35,7 +35,6 @@ const Wrapper = styled.div`
 const LogoLink = styled(Link)`
     text-decoration: none;
     color: ${props => props.theme.colors.text};
-    /* font-size: ${props => props.theme.fontSizes.smallTitle}; */
 `
 
 const NavList = styled.ul`
