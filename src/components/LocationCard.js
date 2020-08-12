@@ -8,6 +8,7 @@ import allActions from '../redux/actions'
 import { getCurrentConditions } from './../utils/apiCalls'
 import { getCurrentConditionsValues } from './../utils/customization'
 import { ROOT } from './../constants/pathes'
+import closeIcon from './../icons/close-icon.svg'
 
 const LocationCard = ({ name, itemKey }) => {
 
@@ -22,30 +23,33 @@ const LocationCard = ({ name, itemKey }) => {
             setConditions(getCurrentConditionsValues(res[0]));
         }).then(setLoading(!loading));
     }
-    
+
     // Commented out to save api calls! Uncomment in the end
     useEffect(() => {
         setCurrentConditions();
     }, []);
 
     return (
-        <StyledLink to={{
-            pathname: ROOT,
-            state: {
-                currentLocation: {
-                        name: name,
-                        key: itemKey
+        <Wrapper>
+            <Icon>
+                <img src={closeIcon} alt="close" onClick={onRemove} style={{width: "10px"}}/>
+            </Icon>
+            <CityName>{name}</CityName>
+            {loading ? <CircularProgress color="inherit" size={20} /> : null}
+            {!loading ? <Details>{`${conditions.temp_metric}° c`}</Details> : null}
+            {!loading ? <Details>{conditions.text}</Details> : null}
+            <StyledLink to={{
+                pathname: ROOT,
+                state: {
+                    currentLocation: {
+                            name: name,
+                            key: itemKey
+                    }
                 }
-            }
-        }}>
-            <Wrapper>
-                <CityName>{name}</CityName>
-                {loading ? <CircularProgress color="inherit" size={20} /> : null}
-                {!loading ? <Details>{`${conditions.temp_metric}° c`}</Details> : null}
-                {!loading ? <Details>{conditions.text}</Details> : null}
-                <Button onClick={onRemove}>Remove</Button>
-            </Wrapper>
-        </StyledLink>
+            }}>
+                <Button onClick={onRemove}>Goo to forecast</Button>
+            </StyledLink>
+        </Wrapper>
     )
 }
 
@@ -74,6 +78,15 @@ const CityName = styled.div`
 const Details = styled.div`
     color: ${props => props.theme.colors.text};
     margin-bottom: 15px;
+`
+
+const Icon = styled.div`
+  margin-left: 85%;
+  width: 10px;
+  &:hover, :focus {
+    fill: ${props => props.theme.colors.primary};
+    cursor: pointer;
+  }
 `
 
 export default LocationCard
