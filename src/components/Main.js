@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import CurrentWeather from './CurrentWeather.js'
+import CurrentConditions from './CurrentConditions.js'
 import FiveDaysForecast from './FiveDaysForecast.js'
 
 const Main = ({loading}) => {
@@ -8,7 +8,7 @@ const Main = ({loading}) => {
         <Wrapper>
             {!loading &&
                 <>
-                    <CurrentWeather/>
+                    <CurrentConditions/>
                     <FiveDaysForecast/>
                 </>
             }

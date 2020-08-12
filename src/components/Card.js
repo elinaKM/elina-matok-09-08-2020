@@ -1,12 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import Button from './Button'
 
 const Card = ({day, temp, unit}) => {
     return (
         <Wrapper>
             <p>{day}</p>
-            <p>{`${temp} ${unit}`}</p>
+            <p>{`${temp}° ${unit}`}</p>
         </Wrapper>
     )
 }
