@@ -1,2 +1,2 @@
-export const ROOT="/elina-matok-09-08-2020"
+export const ROOT="/"
 export const FAVORITES="/favorites"

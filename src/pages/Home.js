@@ -35,20 +35,20 @@ const Home = () => {
     }, [origin]);
 
     //Commented out to save api calls. Uncomment in the end
-    // useEffect(() => {
-    //     setCurrentConditions();
-    // }, [locationKey]);
+    useEffect(() => {
+        setCurrentConditions();
+    }, [locationKey]);
 
 
     return (
         <Wrapper>
-            <button onClick={() => {
+            {/* <button onClick={() => {
                 setCurrentConditions();
             }}>Fetch</button>
 
             <button onClick={() => {
                 dispatch(allActions.locationActions.setLocation({key: "3431644", name: "Telanaipura"}));
-            }}>set location to Telanaipura</button>
+            }}>set location to Telanaipura</button> */}
             
             <Autocomplete/>
             
