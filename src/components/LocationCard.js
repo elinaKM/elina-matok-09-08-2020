@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import Button from './Button'
 import allActions from '../redux/actions'
 import { getCurrentConditions } from './../utils/apiCalls'
 import { getCurrentConditionsValues } from './../utils/customization'
+import { ROOT } from './../constants/pathes'
 
 const LocationCard = ({ name, itemKey }) => {
 
     const [loading, setLoading] = useState(true);
     const [conditions, setConditions] = useState({ temp_metric: "", text: "" });
     const dispatch = useDispatch();
+
     const onRemove = () => dispatch(allActions.favoritesActions.remove(itemKey));
 
     const setCurrentConditions = () => {
@@ -26,15 +29,29 @@ const LocationCard = ({ name, itemKey }) => {
     // }, []);
 
     return (
-        <Wrapper>
-            <CityName>{name}</CityName>
-            {loading ? <CircularProgress color="inherit" size={20} /> : null}
-            {!loading ? <Details>{`${conditions.temp_metric}° c`}</Details> : null}
-            {!loading ? <Details>{conditions.text}</Details> : null}
-            <Button onClick={onRemove}>Remove</Button>
-        </Wrapper>
+        <StyledLink to={{
+            pathname: ROOT,
+            state: {
+                currentLocation: {
+                        name: name,
+                        key: itemKey
+                }
+            }
+        }}>
+            <Wrapper>
+                <CityName>{name}</CityName>
+                {loading ? <CircularProgress color="inherit" size={20} /> : null}
+                {!loading ? <Details>{`${conditions.temp_metric}° c`}</Details> : null}
+                {!loading ? <Details>{conditions.text}</Details> : null}
+                <Button onClick={onRemove}>Remove</Button>
+            </Wrapper>
+        </StyledLink>
     )
 }
+
+const StyledLink = styled(Link)`
+    text-decoration: none;
+`
 
 const Wrapper = styled.div`
     display: flex;
