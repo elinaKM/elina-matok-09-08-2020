@@ -1,6 +1,7 @@
 import {API_HOST, API_KEY} from './../constants/api'
 
 export const get5DaysWeather = (key) => (
+    // fetch(`${API_HOST}forecasts/v1/daily/5day/${key}?metric=true&details=true&apikey=${API_KEY}`, {mode: 'no-cors'})
     fetch(`${API_HOST}forecasts/v1/daily/5day/${key}?metric=true&details=true&apikey=${API_KEY}`)
     .then(response => response.json())
 )
@@ -11,6 +12,6 @@ export const getCurrentConditions = (key) => (
 )
 
 export const getAutoComplete = (string) => (
-    fetch(`${API_HOST}locations/v1/cities/autocomplete/${string}?apikey=${API_KEY}`)
+    fetch(`${API_HOST}locations/v1/cities/autocomplete?q=${string}&apikey=${API_KEY}`)
     .then(response => response.json())
 )

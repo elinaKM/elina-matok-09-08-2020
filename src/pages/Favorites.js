@@ -36,8 +36,6 @@ const NoLoactionSaved = styled.div`
 const ListWrapper = styled.div`
     display: flex;
     flex-flow: row wrap;
-    /* justify-content: space-between; */
-    width: 90%;
     margin: 20px;
 `
 
