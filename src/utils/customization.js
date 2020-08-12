@@ -31,3 +31,15 @@ export const getCurrentConditionsValues = (conditions) => {
         }
     )
 }
+
+export const getAutoCompleteOptionsValues = (arr) => {
+    console.log(arr);
+    return (
+        arr.map((location) => (
+            {
+                key: location.Key,
+                name: location.LocalizedName
+            }
+        ))
+    )
+}

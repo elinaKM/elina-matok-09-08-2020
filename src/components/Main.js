@@ -23,7 +23,7 @@ const Wrapper = styled.div`
     justify-content: space-between;
     border: 1px solid ${props => props.theme.colors.border};
     border-radius: ${props => props.theme.borderRadius.card};
-    margin: 5%;
+    margin-top: 30px;
     background-color: rgba(250,232,242, 0.5);
 `
 

@@ -4,8 +4,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import Button from './Button'
 
 const CurrentWeather = ({addToFavorites}) => {
-    const {temp_metric, text } = useSelector(state => state.currentWeather) || [];
-    const {name, key} = useSelector(state => state.currentLocation) || [];
+    const {temp_metric, text} = useSelector(state => state.currentWeather);
+    const {name, key} = useSelector(state => state.currentLocation);
     return(
         <Wrapper>
             <Header>
@@ -48,7 +48,7 @@ const Temperature = styled.div`
 const WeatherText = styled.div`
     display: flex;
     justify-content: center;
-    margin: 7% 0;
+    margin: 6% 0;
     font-size: ${props => props.theme.fontSizes.megaTitle};
 `
 
