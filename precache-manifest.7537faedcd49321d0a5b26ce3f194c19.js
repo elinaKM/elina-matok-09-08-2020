@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1dd8d93800beb436fa75579e63f71ea7",
+    "revision": "32a86ca1bbab737187fb1d9f555d7037",
     "url": "/elina-matok-09-08-2020/index.html"
   },
   {
-    "revision": "d63bd5eb4285242df261",
+    "revision": "89b3057cd8c9c9224119",
     "url": "/elina-matok-09-08-2020/static/css/main.5ecd60fb.chunk.css"
   },
   {
-    "revision": "ea0472d0a6c466e9a654",
-    "url": "/elina-matok-09-08-2020/static/js/2.3f891629.chunk.js"
+    "revision": "0cf4967183185d40cdb9",
+    "url": "/elina-matok-09-08-2020/static/js/2.2c0272b9.chunk.js"
   },
   {
     "revision": "83af3834c661e921ae64d25afaae3aaa",
-    "url": "/elina-matok-09-08-2020/static/js/2.3f891629.chunk.js.LICENSE.txt"
+    "url": "/elina-matok-09-08-2020/static/js/2.2c0272b9.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "d63bd5eb4285242df261",
-    "url": "/elina-matok-09-08-2020/static/js/main.33b55e8c.chunk.js"
+    "revision": "89b3057cd8c9c9224119",
+    "url": "/elina-matok-09-08-2020/static/js/main.bc5394e4.chunk.js"
   },
   {
     "revision": "2f288c047c9e665127be",
