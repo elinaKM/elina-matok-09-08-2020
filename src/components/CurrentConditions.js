@@ -44,7 +44,7 @@ const CurrentConditions = () => {
             <Header>
                 <City>
                     <CityName>{location.name}</CityName>
-                    <Temperature>{temp_metric ? `${temp_metric}°${unit}` : `Loading...`}</Temperature>
+                    <Temperature>{temp_metric ? `${temp_metric}°${unit}` : ``}</Temperature>
                 </City>
                 <AddToFavorites disabled={buttonDisabled} onClick={addToFavorites}>Add to Favorites</AddToFavorites>
             </Header>

@@ -14,6 +14,7 @@ import { CELCIUS } from '../constants/units'
 const LocationCard = ({ name, itemKey }) => {
 
     const [loading, setLoading] = useState(true);
+    const [failedToLoad, setFailedToLoad] = useState(true);
     const [conditions, setConditions] = useState({ temp_metric: "", text: "" });
     const dispatch = useDispatch();
 
@@ -22,7 +23,10 @@ const LocationCard = ({ name, itemKey }) => {
     const setCurrentConditions = () => {
         getCurrentConditions(itemKey).then((res) => {
             setConditions(getCurrentConditionsValues(res[0]));
-        }).then(setLoading(!loading));
+        }).then(setLoading(!loading))
+        .catch((error) => {
+            setFailedToLoad(true);
+        })
     }
 
     useEffect(() => {

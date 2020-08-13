@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import TextField from '@material-ui/core/TextField'
 import Autocomplete from '@material-ui/lab/Autocomplete'
 import CircularProgress from '@material-ui/core/CircularProgress'
@@ -7,6 +9,8 @@ import { getAutoCompleteOptionsValues } from './../utils/customization'
 import allActions from './../redux/actions/index.js'
 import { getAutoComplete } from './../utils/apiCalls'
 import debounce from './../utils/debounce'
+
+toast.configure();
 
 const SelectAutoComplete = () => {
 
@@ -30,7 +34,8 @@ const SelectAutoComplete = () => {
         getAutoComplete(str)
             .then((res) => setOptions(getAutoCompleteOptionsValues(res)))
             .catch(function(error) {
-                console.log(error);
+                setOpen(false);
+                toast.error(`Oops! ${error}`);
             });
 
     useEffect(() => {
