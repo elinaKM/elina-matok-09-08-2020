@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/elina-matok-09-08-2020/precache-manifest.7537faedcd49321d0a5b26ce3f194c19.js"
+  "/elina-matok-09-08-2020/precache-manifest.0552613c2cce02bcbea54f53d5be19c2.js"
 );
 
 self.addEventListener('message', (event) => {

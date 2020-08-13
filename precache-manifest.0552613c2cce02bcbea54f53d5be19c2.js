@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "32a86ca1bbab737187fb1d9f555d7037",
+    "revision": "c5d56fb70d27245911c4d5b52111e91f",
     "url": "/elina-matok-09-08-2020/index.html"
   },
   {
-    "revision": "89b3057cd8c9c9224119",
+    "revision": "aed2d3c6a75f169d59d7",
     "url": "/elina-matok-09-08-2020/static/css/main.5ecd60fb.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/elina-matok-09-08-2020/static/js/2.2c0272b9.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "89b3057cd8c9c9224119",
-    "url": "/elina-matok-09-08-2020/static/js/main.bc5394e4.chunk.js"
+    "revision": "aed2d3c6a75f169d59d7",
+    "url": "/elina-matok-09-08-2020/static/js/main.6b5f8e9a.chunk.js"
   },
   {
     "revision": "2f288c047c9e665127be",
