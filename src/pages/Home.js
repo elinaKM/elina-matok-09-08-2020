@@ -14,19 +14,25 @@ const Home = () => {
     const [origin] = useState(routerLocation.state ? routerLocation.state.currentLocation: location);
 
     const [loading, setLoading] = useState(true);
+
     const dispatch = useDispatch();
 
     const setCurrentConditions = () => {
         getCurrentConditions(location.key).then((res) => {
             dispatch(allActions.currentWeatherActions.setCurrentWeather(getCurrentConditionsValues(res[0])));
-        }).then(set5DaysWeather());
+        }).catch(function(error) {
+            console.log(error)
+        });
     }
     
     const set5DaysWeather = () => {
         get5DaysWeather(location.key)
             .then((res) => {
                 dispatch(allActions.fiveDaysForecastActions.setFiveDaysForecast(get5ForecastValues(res.DailyForecasts)));
-            }).then(setLoading(false));
+            }).then(setLoading(false))
+            .catch(function(error) {
+                console.log(error)
+            });
     }
     
     useEffect(() => {
@@ -35,6 +41,7 @@ const Home = () => {
 
     useEffect(() => {
         setCurrentConditions();
+        set5DaysWeather();
     }, [location]);
 
     return (
