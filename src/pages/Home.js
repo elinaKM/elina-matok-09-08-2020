@@ -10,21 +10,21 @@ import { get5ForecastValues, getCurrentConditionsValues } from './../utils/custo
 
 const Home = () => {
     const routerLocation = useLocation();
-    const [origin, setOrigin] = useState(routerLocation.state ? routerLocation.state.currentLocation: {key: "215854", name: "Tel Aviv"});
+    const location = useSelector(state => state.currentLocation);
+    const [origin, setOrigin] = useState(routerLocation.state ? routerLocation.state.currentLocation: location);
 
     const [loading, setLoading] = useState(true);
     const dispatch = useDispatch();
-    const locationKey = useSelector(state => state.currentLocation.key);
     const favorites = useSelector(state => state.favorites);
 
     const setCurrentConditions = () => {
-        getCurrentConditions(locationKey).then((res) => {
+        getCurrentConditions(location.key).then((res) => {
             dispatch(allActions.currentWeatherActions.setCurrentWeather(getCurrentConditionsValues(res[0])));
         }).then(set5DaysWeather());
     }
     
     const set5DaysWeather = () => {
-        get5DaysWeather(locationKey)
+        get5DaysWeather(location.key)
             .then((res) => {
                 dispatch(allActions.fiveDaysForecastActions.setFiveDaysForecast(get5ForecastValues(res.DailyForecasts)));
             }).then(setLoading(false));
@@ -35,20 +35,20 @@ const Home = () => {
     }, [origin]);
 
     //Commented out to save api calls. Uncomment in the end
-    useEffect(() => {
-        setCurrentConditions();
-    }, [locationKey]);
+    // useEffect(() => {
+    //     setCurrentConditions();
+    // }, [locationKey]);
 
 
     return (
         <Wrapper>
-            {/* <button onClick={() => {
+            <button onClick={() => {
                 setCurrentConditions();
             }}>Fetch</button>
 
             <button onClick={() => {
                 dispatch(allActions.locationActions.setLocation({key: "3431644", name: "Telanaipura"}));
-            }}>set location to Telanaipura</button> */}
+            }}>set location to Telanaipura</button>
             
             <Autocomplete/>
             
