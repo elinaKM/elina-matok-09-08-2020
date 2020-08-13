@@ -1,29 +1,45 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { useSelector, useDispatch } from 'react-redux'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import Button from './Button'
 import allActions from '../redux/actions'
 import { CELCIUS } from '../constants/units'
 
+toast.configure();
+
 const CurrentConditions = () => {
     const [buttonDisabled, setButtonDisabled] = useState(false);
+    const [favoriteAdded, setFavoriteAdded] = useState(false);
 
-    const {temp_metric, text} = useSelector(state => state.currentWeather);
+    const { temp_metric, text } = useSelector(state => state.currentWeather);
     const location = useSelector(state => state.currentLocation);
     const favorites = useSelector(state => state.favorites);
-    const dispatch  = useDispatch();
+    const dispatch = useDispatch();
 
     const addToFavorites = () => {
-        dispatch(allActions.favoritesActions.add(location))
+        dispatch(allActions.favoritesActions.add(location));
+        setFavoriteAdded(true);
     }
 
     useEffect(() => {
+        if (favoriteAdded) {
+            if (favorites.filter((item) => item.key === location.key).length === 1) {
+                toast.success(`Congrats! ${location.name} is added to favorites!`);
+            } else {
+                toast.error(`Oops, something went wrong!`);
+            }
+        }
+    }, [favoriteAdded])
+
+    useEffect(() => {
         setButtonDisabled(favorites.filter((item) => item.key === location.key).length === 1);
-    },[favorites, location])
+    }, [favorites, location])
 
     const unit = CELCIUS;
 
-    return(
+    return (
         <Wrapper>
             <Header>
                 <City>
