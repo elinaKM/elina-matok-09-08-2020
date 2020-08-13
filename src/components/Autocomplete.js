@@ -1,19 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import styled from 'styled-components'
 import TextField from '@material-ui/core/TextField'
 import Autocomplete from '@material-ui/lab/Autocomplete'
 import CircularProgress from '@material-ui/core/CircularProgress'
-import { API_HOST, API_KEY } from './../constants/api'
 import { getAutoCompleteOptionsValues } from './../utils/customization'
 import allActions from './../redux/actions/index.js'
-
-
-function sleep(delay = 0) {
-    return new Promise((resolve) => {
-        setTimeout(resolve, delay);
-    });
-}
+import { getAutoComplete } from './../utils/apiCalls'
+import debounce from './../utils/debounce'
 
 const SelectAutoComplete = () => {
 
@@ -25,36 +18,24 @@ const SelectAutoComplete = () => {
     const [options, setOptions] = useState([]);
     const loading = open && options.length === 0;
 
-
     const setLocation = (location) => {
         dispatch(allActions.locationActions.setLocation(location));
     }
 
+    const setResults = (str) =>
+        getAutoComplete(str)
+            .then((res) => setOptions(getAutoCompleteOptionsValues(res)))
+            .catch(function(error) {
+                console.log(error);
+            });
+
     useEffect(() => {
-        let active = true;
-        let locations = [];
-
-        if (!loading) {
-            return undefined;
+        if (searchString.length === 0) {
+            setOpen(false);
+        } else {
+            debounce(setResults(searchString), 1000);
         }
-
-        (async () => {
-            console.log(searchString);
-            const response = await fetch(`${API_HOST}locations/v1/cities/autocomplete?q=${searchString}&apikey=${API_KEY}`);
-            if (response && active)  {
-                locations = await response.json();
-                // locations = getAutoCompleteOptionsValues(locations);
-            // if (active) {
-                // setOptions(Object.keys(countries).map((key) => countries[key].item[0]));
-                setOptions(getAutoCompleteOptionsValues(locations));
-            // }
-            }
-        })();
-
-        return () => {
-            active = false;
-        };
-    }, [loading, searchString]);
+    }, [searchString]);
 
     useEffect(() => {
         if (!open) {
@@ -62,11 +43,8 @@ const SelectAutoComplete = () => {
         }
     }, [open]);
 
-    console.log(searchString);
-
     return (
         <Autocomplete
-            id="asynchronous-demo"
             style={{ marginTop: "30px" }}
             open={open}
             onOpen={() => {
@@ -90,7 +68,7 @@ const SelectAutoComplete = () => {
                 <TextField
                     {...params}
                     onChange={e => setSearchString(e.target.value)}
-                    label="Location"
+                    label="Search for location"
                     variant="outlined"
                     InputProps={{
                         ...params.InputProps,

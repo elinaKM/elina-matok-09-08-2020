@@ -39,20 +39,10 @@ const Home = () => {
     //     setCurrentConditions();
     // }, [locationKey]);
 
-
     return (
         <Wrapper>
-            <button onClick={() => {
-                setCurrentConditions();
-            }}>Fetch</button>
-
-            <button onClick={() => {
-                dispatch(allActions.locationActions.setLocation({key: "3431644", name: "Telanaipura"}));
-            }}>set location to Telanaipura</button>
-            
             <Autocomplete/>
-            
-            <Main loading={false}/>
+            <Main loading={true}/>
         </Wrapper>
     )
 }

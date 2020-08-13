@@ -1,7 +1,6 @@
 import {API_HOST, API_KEY} from './../constants/api'
 
 export const get5DaysWeather = (key) => (
-    // fetch(`${API_HOST}forecasts/v1/daily/5day/${key}?metric=true&details=true&apikey=${API_KEY}`, {mode: 'no-cors'})
     fetch(`${API_HOST}forecasts/v1/daily/5day/${key}?metric=true&details=true&apikey=${API_KEY}`)
     .then(response => response.json())
 )

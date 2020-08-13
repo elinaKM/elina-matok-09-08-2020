@@ -10,7 +10,6 @@ export const getWeekDay = (date) => {
 
 
 export const get5ForecastValues = (arr) => (
-
     arr.map((day) => (
         {
             date: new Date(day.Date),
@@ -20,26 +19,19 @@ export const get5ForecastValues = (arr) => (
     ))
 )
 
-export const getCurrentConditionsValues = (conditions) => {
-    console.log("Parsing!!!");
-    return (
-        {
-            name: "None",
-            temp_metric: conditions.Temperature.Metric.Value,
-            temp_imperial: conditions.Temperature.Imperial.Value,
-            text: conditions.WeatherText
-        }
-    )
-}
+export const getCurrentConditionsValues = (conditions) => (
+    {
+        temp_metric: conditions.Temperature.Metric.Value,
+        temp_imperial: conditions.Temperature.Imperial.Value,
+        text: conditions.WeatherText
+    }
+)
 
-export const getAutoCompleteOptionsValues = (arr) => {
-    console.log(arr);
-    return (
-        arr.map((location) => (
-            {
-                key: location.Key,
-                name: location.LocalizedName
-            }
-        ))
-    )
-}
+export const getAutoCompleteOptionsValues = (arr) => (
+    arr.map((location) => (
+        {
+            key: location.Key,
+            name: location.LocalizedName
+        }
+    ))
+)
