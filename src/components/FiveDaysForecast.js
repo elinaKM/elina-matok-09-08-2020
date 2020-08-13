@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import Card from './Card'
 import { getWeekDay } from '../utils/customization'
 

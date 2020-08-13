@@ -11,7 +11,7 @@ import debounce from './../utils/debounce'
 const SelectAutoComplete = () => {
 
     const dispatch = useDispatch();
-    const {name, key} = useSelector(state => state.currentLocation);
+    const {name} = useSelector(state => state.currentLocation);
 
     const [searchString, setSearchString] = useState(name);
     const [open, setOpen] = useState(false);
@@ -55,7 +55,6 @@ const SelectAutoComplete = () => {
             }}
             onChange={(event, value) => {
                 if (value) {
-                    console.log(value);
                     setLocation(value);
                 }
             }}

@@ -1,27 +1,16 @@
 const theme = {
   colors: {
     primary: "#87ABE0",
-    secondary: "#FAE8F2",
     text: "#555555",
     buttonText: "#FFFFFF",
     card: "#FFFFFF",
     border: "#A4A7AC",
   },
-  screenWidthBreakPoints: {
-    mobile: "420px",
-    ipad: "780px",
-  },
   borderRadius: {
     button: "4px",
     card: "10px",
-    picture: "50%",
   },
   fontSizes: {
-    smallIconText: "0.5rem", // 8px
-    sponsoredLabel: "0.75rem", // 12px
-    smallDescription: "0.8125rem", // 13px
-    description: "0.875rem", // 14px
-    subText: "0.9365rem", // 15px
     text: "1rem", // 16px
     smallTitle: "1.125rem", // 18px
     subSubTitle: "1.25rem", // 20px
