@@ -35,6 +35,7 @@ const Wrapper = styled.div`
 const LogoLink = styled(Link)`
     text-decoration: none;
     color: ${props => props.theme.colors.text};
+    font-weight: bold;
 `
 
 const NavList = styled.ul`

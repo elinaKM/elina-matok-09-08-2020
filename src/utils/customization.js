@@ -1,7 +1,4 @@
-import { NonceProvider } from "react-select";
-
 export const getWeekDay = (date) => {
-
     const weekdays = new Array(
         "SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"
     );

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import Card from './Card'
 import { getWeekDay } from '../utils/customization'
 
@@ -16,7 +16,7 @@ const FiveDaysForecast = () => {
 const Wrapper = styled.div`
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
+    justify-content: space-around;
 `
 
 export default FiveDaysForecast

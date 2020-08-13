@@ -1,14 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
+import { CELCIUS } from '../constants/units'
 
-const Card = ({day, temp, unit}) => {
-    return (
-        <Wrapper>
-            <p>{day}</p>
-            <p>{`${temp}° ${unit}`}</p>
-        </Wrapper>
-    )
-}
+const unit = CELCIUS;
+
+const Card = ({ day, temp }) =>
+    <Wrapper>
+        <p>{day}</p>
+        <p>{`${temp}°${unit}`}</p>
+    </Wrapper>
 
 const Wrapper = styled.div`
     display: flex;

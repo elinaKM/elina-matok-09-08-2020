@@ -11,8 +11,7 @@ const StyledButton = styled.button`
     background-color: ${props => props.theme.colors.primary};
     border: none;
     color: ${props => props.theme.colors.buttonText};
-    padding: 10px 20px;
-    /* font-size: ${props => props.theme.fontSizes.text}; */
+    max-height: 40px;
     font-family: inherit;
     border-radius: ${props => props.theme.borderRadius.button};
     &:hover, :focus {

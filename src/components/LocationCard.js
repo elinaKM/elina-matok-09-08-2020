@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import CircularProgress from '@material-ui/core/CircularProgress'
@@ -9,6 +9,7 @@ import { getCurrentConditions } from './../utils/apiCalls'
 import { getCurrentConditionsValues } from './../utils/customization'
 import { ROOT } from './../constants/pathes'
 import closeIcon from './../icons/close-icon.svg'
+import { CELCIUS } from '../constants/units'
 
 const LocationCard = ({ name, itemKey }) => {
 
@@ -24,10 +25,11 @@ const LocationCard = ({ name, itemKey }) => {
         }).then(setLoading(!loading));
     }
 
-    // Commented out to save api calls! Uncomment in the end
-    // useEffect(() => {
-    //     setCurrentConditions();
-    // }, []);
+    useEffect(() => {
+        setCurrentConditions();
+    }, []);
+
+    const unit = CELCIUS;
 
     return (
         <Wrapper>
@@ -36,7 +38,7 @@ const LocationCard = ({ name, itemKey }) => {
             </Icon>
             <CityName>{name}</CityName>
             {loading ? <CircularProgress color="inherit" size={20} /> : null}
-            {!loading ? <Details>{`${conditions.temp_metric}° c`}</Details> : null}
+            {!loading ? <Details>{`${conditions.temp_metric}°${unit}`}</Details> : null}
             {!loading ? <Details>{conditions.text}</Details> : null}
             <StyledLink to={{
                 pathname: ROOT,
@@ -47,7 +49,7 @@ const LocationCard = ({ name, itemKey }) => {
                     }
                 }
             }}>
-                <Button onClick={onRemove}>Goo to forecast</Button>
+                <Button> Goo to forecast </Button>
             </StyledLink>
         </Wrapper>
     )
