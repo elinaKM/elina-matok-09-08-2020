@@ -13,10 +13,14 @@ const SelectAutoComplete = () => {
     const dispatch = useDispatch();
     const {name} = useSelector(state => state.currentLocation);
 
-    const [searchString, setSearchString] = useState(name);
+    const [searchString, setSearchString] = useState("");
+    const [validString, setValidString] = useState(true);
     const [open, setOpen] = useState(false);
     const [options, setOptions] = useState([]);
     const loading = open && options.length === 0;
+    const reg = /^[a-z]+$/i;
+    const empty = /^\s+$|^$/gi;
+
 
     const setLocation = (location) => {
         dispatch(allActions.locationActions.setLocation(location));
@@ -30,7 +34,11 @@ const SelectAutoComplete = () => {
             });
 
     useEffect(() => {
-        if (searchString.length === 0) {
+        setValidString(reg.test(searchString) || empty.test(searchString));
+    }, [searchString]);
+
+    useEffect(() => {
+        if (searchString.length === 0 || !validString){
             setOpen(false);
         } else {
             debounce(setResults(searchString), 1000);
@@ -69,6 +77,7 @@ const SelectAutoComplete = () => {
                     onChange={e => setSearchString(e.target.value)}
                     label="Search for location"
                     variant="outlined"
+                    helperText={!validString ? "Searching should be done in English letters only" : ""}
                     InputProps={{
                         ...params.InputProps,
                         endAdornment: (
