@@ -26,9 +26,9 @@ const CurrentConditions = () => {
     useEffect(() => {
         if (favoriteAdded) {
             if (favorites.filter((item) => item.key === location.key).length === 1) {
-                toast(`Congrats! ${location.name} is added to favorites!`);
+                toast.success(`Congrats! ${location.name} is added to favorites!`);
             } else {
-                toast(`Oops, something went wrong!`);
+                toast.error(`Oops, something went wrong!`);
             }
         }
     }, [favoriteAdded])
