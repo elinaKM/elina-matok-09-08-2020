@@ -25,9 +25,9 @@ const LocationCard = ({ name, itemKey }) => {
     }
 
     // Commented out to save api calls! Uncomment in the end
-    // useEffect(() => {
-    //     setCurrentConditions();
-    // }, []);
+    useEffect(() => {
+        setCurrentConditions();
+    }, []);
 
     return (
         <Wrapper>
@@ -47,7 +47,7 @@ const LocationCard = ({ name, itemKey }) => {
                     }
                 }
             }}>
-                <Button onClick={onRemove}>Goo to forecast</Button>
+                <Button> Goo to forecast </Button>
             </StyledLink>
         </Wrapper>
     )

@@ -35,14 +35,15 @@ const Home = () => {
     }, [origin]);
 
     //Commented out to save api calls. Uncomment in the end
-    // useEffect(() => {
-    //     setCurrentConditions();
-    // }, [locationKey]);
+    useEffect(() => {
+        setCurrentConditions();
+    }, [location]);
 
     return (
         <Wrapper>
+            {/* <button onClick={()=> setCurrentConditions()}>fetch</button> */}
             <Autocomplete/>
-            <Main loading={true}/>
+            <Main loading={loading}/>
         </Wrapper>
     )
 }

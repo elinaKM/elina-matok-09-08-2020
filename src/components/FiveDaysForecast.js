@@ -16,7 +16,7 @@ const FiveDaysForecast = () => {
 const Wrapper = styled.div`
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
+    justify-content: space-around;
 `
 
 export default FiveDaysForecast
